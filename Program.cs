@@ -1,21 +1,26 @@
-﻿Atividade1();
+﻿Atividade2();
 
-static void Atividade1()
+static void Atividade2()
 {
-    double[] notas = new double[5];
-    double soma = 0;
-    double media;
+    int[] idades = new int[8];
+    int menores = 0;
+    int maiores = 0;
 
-    for (int i = 0; i < notas.Length; i++)
+    for (int i = 0; i < idades.Length; i++)
     {
-        Console.Write("Informe a nota: ");
-        notas[i] = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Informe a idade do estudante: ");
+        idades[i] = Convert.ToInt32(Console.ReadLine());
 
-        soma += notas[i];
+        if (idades[i] < 18)
+        {
+            menores++;
+        }
+        else
+        {
+            maiores++;
+        }
     }
 
-    media = soma / notas.Length;
-
-    Console.WriteLine($"\nSoma das notas: {soma}");
-    Console.WriteLine($"Média final: {media}");
+    Console.WriteLine($"\nQuantidade de menores de idade: {menores}");
+    Console.WriteLine($"Quantidade de maiores de idade: {maiores}");
 }
