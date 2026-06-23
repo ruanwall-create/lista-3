@@ -1,50 +1,52 @@
-﻿Atividade6();
+﻿Atividade7();
 
-static void Atividade6()
+static void Atividade7()
 {
-    int[] numeros = new int[10];
+    string[] produtos = new string[5];
+    double[] precos = new double[5];
 
-    int positivos = 0;
-    int negativos = 0;
-    int zeros = 0;
-    int pares = 0;
-    int impares = 0;
+    double total = 0;
 
-    for (int i = 0; i < numeros.Length; i++)
+    string produtoMaisCaro;
+    string produtoMaisBarato;
+
+    for (int i = 0; i < produtos.Length; i++)
     {
-        Console.Write("Informe um número inteiro: ");
-        numeros[i] = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Informe o nome do produto: ");
+        produtos[i] = Console.ReadLine();
 
-        if (numeros[i] == 0)
+        Console.Write("Informe o preço do produto: ");
+        precos[i] = Convert.ToDouble(Console.ReadLine());
+
+        total += precos[i];
+    }
+
+    double maiorPreco = precos[0];
+    double menorPreco = precos[0];
+
+    produtoMaisCaro = produtos[0];
+    produtoMaisBarato = produtos[0];
+
+    for (int i = 1; i < precos.Length; i++)
+    {
+        if (precos[i] > maiorPreco)
         {
-            zeros++;
-            pares++; // zero é considerado par
+            maiorPreco = precos[i];
+            produtoMaisCaro = produtos[i];
         }
-        else
-        {
-            if (numeros[i] > 0)
-            {
-                positivos++;
-            }
-            else
-            {
-                negativos++;
-            }
 
-            if (numeros[i] % 2 == 0)
-            {
-                pares++;
-            }
-            else
-            {
-                impares++;
-            }
+        if (precos[i] < menorPreco)
+        {
+            menorPreco = precos[i];
+            produtoMaisBarato = produtos[i];
         }
     }
 
-    Console.WriteLine($"\nQuantidade de positivos: {positivos}");
-    Console.WriteLine($"Quantidade de negativos: {negativos}");
-    Console.WriteLine($"Quantidade de zeros: {zeros}");
-    Console.WriteLine($"\nQuantidade de pares: {pares}");
-    Console.WriteLine($"Quantidade de ímpares: {impares}");
+    Console.WriteLine($"\nProduto mais caro: {produtoMaisCaro}");
+    Console.WriteLine($"Preço do produto mais caro: R$ {maiorPreco}");
+
+    Console.WriteLine($"Produto mais barato: {produtoMaisBarato}");
+    Console.WriteLine($"Preço do produto mais barato: R$ {menorPreco}");
+
+    Console.WriteLine($"Total dos preços: R$ {total}");
 }
