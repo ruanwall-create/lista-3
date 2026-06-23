@@ -1,44 +1,50 @@
-﻿Atividade5();
+﻿Atividade6();
 
-static void Atividade5()
+static void Atividade6()
 {
-    double[] temperaturas = new double[6];
-    double soma = 0;
+    int[] numeros = new int[10];
 
-    for (int i = 0; i < temperaturas.Length; i++)
+    int positivos = 0;
+    int negativos = 0;
+    int zeros = 0;
+    int pares = 0;
+    int impares = 0;
+
+    for (int i = 0; i < numeros.Length; i++)
     {
-        Console.Write("Informe a temperatura registrada: ");
-        temperaturas[i] = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Informe um número inteiro: ");
+        numeros[i] = Convert.ToInt32(Console.ReadLine());
 
-        soma += temperaturas[i];
+        if (numeros[i] == 0)
+        {
+            zeros++;
+            pares++; // zero é considerado par
+        }
+        else
+        {
+            if (numeros[i] > 0)
+            {
+                positivos++;
+            }
+            else
+            {
+                negativos++;
+            }
+
+            if (numeros[i] % 2 == 0)
+            {
+                pares++;
+            }
+            else
+            {
+                impares++;
+            }
+        }
     }
 
-    double media = soma / temperaturas.Length;
-
-    int diasAcimaMedia = 0;
-    double maior = temperaturas[0];
-    double menor = temperaturas[0];
-
-    for (int i = 0; i < temperaturas.Length; i++)
-    {
-        if (temperaturas[i] > media)
-        {
-            diasAcimaMedia++;
-        }
-
-        if (temperaturas[i] > maior)
-        {
-            maior = temperaturas[i];
-        }
-
-        if (temperaturas[i] < menor)
-        {
-            menor = temperaturas[i];
-        }
-    }
-
-    Console.WriteLine($"\nMédia das temperaturas: {media}");
-    Console.WriteLine($"Dias acima da média: {diasAcimaMedia}");
-    Console.WriteLine($"Maior temperatura: {maior}");
-    Console.WriteLine($"Menor temperatura: {menor}");
+    Console.WriteLine($"\nQuantidade de positivos: {positivos}");
+    Console.WriteLine($"Quantidade de negativos: {negativos}");
+    Console.WriteLine($"Quantidade de zeros: {zeros}");
+    Console.WriteLine($"\nQuantidade de pares: {pares}");
+    Console.WriteLine($"Quantidade de ímpares: {impares}");
 }
