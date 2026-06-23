@@ -1,52 +1,33 @@
-﻿Atividade7();
+﻿Atividade8();
 
-static void Atividade7()
+static void Atividade8()
 {
-    string[] produtos = new string[5];
-    double[] precos = new double[5];
+    int[] votos = new int[12];
 
-    double total = 0;
+    int pizza = 0;
+    int hamburguer = 0;
+    int pastel = 0;
 
-    string produtoMaisCaro;
-    string produtoMaisBarato;
-
-    for (int i = 0; i < produtos.Length; i++)
+    for (int i = 0; i < votos.Length; i++)
     {
-        Console.Write("Informe o nome do produto: ");
-        produtos[i] = Console.ReadLine();
+        Console.Write("Informe o voto do estudante: ");
+        votos[i] = Convert.ToInt32(Console.ReadLine());
 
-        Console.Write("Informe o preço do produto: ");
-        precos[i] = Convert.ToDouble(Console.ReadLine());
-
-        total += precos[i];
-    }
-
-    double maiorPreco = precos[0];
-    double menorPreco = precos[0];
-
-    produtoMaisCaro = produtos[0];
-    produtoMaisBarato = produtos[0];
-
-    for (int i = 1; i < precos.Length; i++)
-    {
-        if (precos[i] > maiorPreco)
+        if (votos[i] == 1)
         {
-            maiorPreco = precos[i];
-            produtoMaisCaro = produtos[i];
+            pizza++;
         }
-
-        if (precos[i] < menorPreco)
+        else if (votos[i] == 2)
         {
-            menorPreco = precos[i];
-            produtoMaisBarato = produtos[i];
+            hamburguer++;
+        }
+        else if (votos[i] == 3)
+        {
+            pastel++;
         }
     }
 
-    Console.WriteLine($"\nProduto mais caro: {produtoMaisCaro}");
-    Console.WriteLine($"Preço do produto mais caro: R$ {maiorPreco}");
-
-    Console.WriteLine($"Produto mais barato: {produtoMaisBarato}");
-    Console.WriteLine($"Preço do produto mais barato: R$ {menorPreco}");
-
-    Console.WriteLine($"Total dos preços: R$ {total}");
+    Console.WriteLine($"\nVotos para Pizza: {pizza}");
+    Console.WriteLine($"Votos para Hambúrguer: {hamburguer}");
+    Console.WriteLine($"Votos para Pastel: {pastel}");
 }
