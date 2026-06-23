@@ -1,0 +1,79 @@
+using System;
+
+public class Menu
+{
+    public static void ExibirMenuPrincipal()
+    {
+        int opcao;
+
+        do
+    {
+            Console.Clear();
+
+            Console.WriteLine("===== MENU PRINCIPAL =====");
+            Console.WriteLine("1 - Verificação de idade para entrada em evento");
+            Console.WriteLine("2 - Situação final do estudante");
+            Console.WriteLine("3 - Classificação de temperatura ambiente");
+            Console.WriteLine("4 - Cálculo de compra com desconto");
+            Console.WriteLine("5 - Verificação de meta de produtividade");
+            Console.WriteLine("6 - Classificação por faixa etária");
+            Console.WriteLine("7 - Maior valor entre dois números");
+            Console.WriteLine("8 - Maior valor entre três números");
+            Console.WriteLine("9 - Identificação de número par ou ímpar");
+            Console.WriteLine("10 - Cálculo de passagem por idade");
+            Console.WriteLine("0 - Sair");
+            Console.Write("\nEscolha uma opção: ");
+
+            opcao = int.Parse(Console.ReadLine()!);
+
+            Console.Clear();
+
+            switch (opcao)
+            {
+                case 1:
+                    AtividadesCondicionais.Atividade01();
+                    break;
+                case 2:
+                    AtividadesCondicionais.Atividade02();
+                    break;
+                case 3:
+                    AtividadesCondicionais.Atividade03();
+                    break;
+                case 4:
+                    AtividadesCondicionais.Atividade04();
+                    break;
+                case 5:
+                    AtividadesCondicionais.Atividade05();
+                    break;
+                case 6:
+                    AtividadesCondicionais.Atividade06();
+                    break;
+                case 7:
+                    AtividadesCondicionais.Atividade07();
+                    break;
+                case 8:
+                    AtividadesCondicionais.Atividade08();
+                    break;
+                case 9:
+                    AtividadesCondicionais.Atividade09();
+                    break;
+                case 10:
+                    AtividadesCondicionais.Atividade10();
+                    break;
+                    case 0:
+                    Console.WriteLine("Programa encerrado.");
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida.");
+                    break;
+            }
+
+            if (opcao != 0)
+            {
+                Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
+                Console.ReadKey();
+            }
+
+        } while (opcao != 0);
+    }
+}
