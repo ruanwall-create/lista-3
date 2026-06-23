@@ -1,33 +1,47 @@
-﻿Atividade8();
+﻿Atividade9();
 
-static void Atividade8()
+static void Atividade9()
 {
-    int[] votos = new int[12];
+    string[] tarefas = new string[5];
+    int[] prioridades = new int[5];
 
-    int pizza = 0;
-    int hamburguer = 0;
-    int pastel = 0;
+    int baixa = 0;
+    int media = 0;
+    int alta = 0;
 
-    for (int i = 0; i < votos.Length; i++)
+    for (int i = 0; i < tarefas.Length; i++)
     {
-        Console.Write("Informe o voto do estudante: ");
-        votos[i] = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Informe o nome da tarefa: ");
+        tarefas[i] = Console.ReadLine()!;
 
-        if (votos[i] == 1)
+        Console.Write("Informe a prioridade da tarefa: ");
+        prioridades[i] = Convert.ToInt32(Console.ReadLine());
+
+        if (prioridades[i] == 1)
         {
-            pizza++;
+            baixa++;
         }
-        else if (votos[i] == 2)
+        else if (prioridades[i] == 2)
         {
-            hamburguer++;
+            media++;
         }
-        else if (votos[i] == 3)
+        else if (prioridades[i] == 3)
         {
-            pastel++;
+            alta++;
         }
     }
 
-    Console.WriteLine($"\nVotos para Pizza: {pizza}");
-    Console.WriteLine($"Votos para Hambúrguer: {hamburguer}");
-    Console.WriteLine($"Votos para Pastel: {pastel}");
+    Console.WriteLine($"\nTarefas de baixa prioridade: {baixa}");
+    Console.WriteLine($"Tarefas de média prioridade: {media}");
+    Console.WriteLine($"Tarefas de alta prioridade: {alta}");
+
+    Console.WriteLine("\nTarefas de alta prioridade:");
+
+    for (int i = 0; i < tarefas.Length; i++)
+    {
+        if (prioridades[i] == 3)
+        {
+            Console.WriteLine($"- {tarefas[i]}");
+        }
+    }
 }
