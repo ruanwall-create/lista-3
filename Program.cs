@@ -1,30 +1,44 @@
-﻿Atividade4();
+﻿Atividade5();
 
-static void Atividade4()
+static void Atividade5()
 {
-    double[] horasEstudadas = new double[7];
-    double totalHoras = 0;
-    int metaAtingida = 0;
-    int metaNaoAtingida = 0;
+    double[] temperaturas = new double[6];
+    double soma = 0;
 
-    for (int i = 0; i < horasEstudadas.Length; i++)
+    for (int i = 0; i < temperaturas.Length; i++)
     {
-        Console.Write("Informe as horas estudadas no dia: ");
-        horasEstudadas[i] = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Informe a temperatura registrada: ");
+        temperaturas[i] = Convert.ToDouble(Console.ReadLine());
 
-        totalHoras += horasEstudadas[i];
+        soma += temperaturas[i];
+    }
 
-        if (horasEstudadas[i] >= 2)
+    double media = soma / temperaturas.Length;
+
+    int diasAcimaMedia = 0;
+    double maior = temperaturas[0];
+    double menor = temperaturas[0];
+
+    for (int i = 0; i < temperaturas.Length; i++)
+    {
+        if (temperaturas[i] > media)
         {
-            metaAtingida++;
+            diasAcimaMedia++;
         }
-        else
+
+        if (temperaturas[i] > maior)
         {
-            metaNaoAtingida++;
+            maior = temperaturas[i];
+        }
+
+        if (temperaturas[i] < menor)
+        {
+            menor = temperaturas[i];
         }
     }
 
-    Console.WriteLine($"\nTotal de horas estudadas: {totalHoras}");
-    Console.WriteLine($"Dias com meta atingida: {metaAtingida}");
-    Console.WriteLine($"Dias com meta não atingida: {metaNaoAtingida}");
+    Console.WriteLine($"\nMédia das temperaturas: {media}");
+    Console.WriteLine($"Dias acima da média: {diasAcimaMedia}");
+    Console.WriteLine($"Maior temperatura: {maior}");
+    Console.WriteLine($"Menor temperatura: {menor}");
 }
