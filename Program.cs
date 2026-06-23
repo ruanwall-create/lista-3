@@ -1,38 +1,30 @@
-﻿Atividade3();
+﻿Atividade4();
 
-static void Atividade3()
+static void Atividade4()
 {
-    double[] gastos = new double[7];
-    double total = 0;
+    double[] horasEstudadas = new double[7];
+    double totalHoras = 0;
+    int metaAtingida = 0;
+    int metaNaoAtingida = 0;
 
-    for (int i = 0; i < gastos.Length; i++)
+    for (int i = 0; i < horasEstudadas.Length; i++)
     {
-        Console.Write("Informe o gasto do dia: ");
-        gastos[i] = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Informe as horas estudadas no dia: ");
+        horasEstudadas[i] = Convert.ToDouble(Console.ReadLine());
 
-        total += gastos[i];
-    }
+        totalHoras += horasEstudadas[i];
 
-    double media = total / gastos.Length;
-
-    double maior = gastos[0];
-    double menor = gastos[0];
-
-    for (int i = 1; i < gastos.Length; i++)
-    {
-        if (gastos[i] > maior)
+        if (horasEstudadas[i] >= 2)
         {
-            maior = gastos[i];
+            metaAtingida++;
         }
-
-        if (gastos[i] < menor)
+        else
         {
-            menor = gastos[i];
+            metaNaoAtingida++;
         }
     }
 
-    Console.WriteLine($"\nTotal gasto na semana: R$ {total}");
-    Console.WriteLine($"Média diária de gastos: R$ {media}");
-    Console.WriteLine($"Maior gasto: R$ {maior}");
-    Console.WriteLine($"Menor gasto: R$ {menor}");
+    Console.WriteLine($"\nTotal de horas estudadas: {totalHoras}");
+    Console.WriteLine($"Dias com meta atingida: {metaAtingida}");
+    Console.WriteLine($"Dias com meta não atingida: {metaNaoAtingida}");
 }
