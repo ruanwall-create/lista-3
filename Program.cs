@@ -1,26 +1,38 @@
-﻿Atividade2();
+﻿Atividade3();
 
-static void Atividade2()
+static void Atividade3()
 {
-    int[] idades = new int[8];
-    int menores = 0;
-    int maiores = 0;
+    double[] gastos = new double[7];
+    double total = 0;
 
-    for (int i = 0; i < idades.Length; i++)
+    for (int i = 0; i < gastos.Length; i++)
     {
-        Console.Write("Informe a idade do estudante: ");
-        idades[i] = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Informe o gasto do dia: ");
+        gastos[i] = Convert.ToDouble(Console.ReadLine());
 
-        if (idades[i] < 18)
+        total += gastos[i];
+    }
+
+    double media = total / gastos.Length;
+
+    double maior = gastos[0];
+    double menor = gastos[0];
+
+    for (int i = 1; i < gastos.Length; i++)
+    {
+        if (gastos[i] > maior)
         {
-            menores++;
+            maior = gastos[i];
         }
-        else
+
+        if (gastos[i] < menor)
         {
-            maiores++;
+            menor = gastos[i];
         }
     }
 
-    Console.WriteLine($"\nQuantidade de menores de idade: {menores}");
-    Console.WriteLine($"Quantidade de maiores de idade: {maiores}");
+    Console.WriteLine($"\nTotal gasto na semana: R$ {total}");
+    Console.WriteLine($"Média diária de gastos: R$ {media}");
+    Console.WriteLine($"Maior gasto: R$ {maior}");
+    Console.WriteLine($"Menor gasto: R$ {menor}");
 }
